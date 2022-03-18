@@ -1,11 +1,13 @@
 import React,{useState} from 'react'
 import '../App.css'
 
+
 export default function TextForm(props) {
     const [text,setText] = useState("")
 
     const handleOnClick = () => {
         setText(text.toUpperCase())
+        props.showAlert("Text converted to upper case","success")
     }
 
     const handleOnChange = (event) => {
@@ -14,26 +16,30 @@ export default function TextForm(props) {
 
     const handleLoClick = (event) => {
       setText(text.toLowerCase())
+      props.showAlert("Text converted to lower case","success")
     }
 
     const handleClear = () => {
       setText("")
+      props.showAlert("Text cleared","success")
     }
 
     const handleCopy = () => {
       let text = document.getElementById("myBox");
       text.select();
       navigator.clipboard.writeText(text.value)
+      props.showAlert("Text copied","success")
     }
 
     const handleExtraSpaces = () => {
       let newText = text.split(/[ ]+/);
       setText(newText.join(" "))
+      props.showAlert("Extra spaces removed","success")
     }
 
   return (
     <>
-    <div className='container' style={{color: props.mode === 'light' ? 'black' : 'white'}}>
+    <div className='container my-4' style={{color: props.mode === 'light' ? 'black' : 'white'}}>
         <div className="mb-3">
         <label htmlFor="myBox" className="form-label">{props.label}</label>
         <textarea className="form-control" value={text} id="myBox" style={{backgroundColor: props.mode === 'light' ? 'white' : '#042743', color: props.mode === 'light' ? 'black' : 'white'}} rows="8" placeholder="Enter text here" onChange={handleOnChange}></textarea>
@@ -49,7 +55,7 @@ export default function TextForm(props) {
         Your text summary
       </h1>
       <p>
-        {text.split(" ").length > 1 ? text.split(" ").length-1 : 0} words and {text.length} characters
+        {text.split(" ").length > 1 ? text.split(" ").length : 0} words and {text.length} characters
       </p>
       <h3>
         Preview
