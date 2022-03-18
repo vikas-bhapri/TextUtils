@@ -8,7 +8,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
+  
 } from "react-router-dom";
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
       <Alert alert={alert} />
       <Routes>
         <Route exact path="/" element={<TextForm showAlert={showAlert} label='Enter Text Here' mode={mode}></TextForm>} />
-        <Route exact path="/about" element={<About />} />
+        <Route exact path="/about" element={<About mode={mode}/>} />
       </Routes>
       </BrowserRouter>
     </>
