@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.previewText{
+  font-family: Arial, sans-serif;
+  font-weight: 300;
+  text-align: justify;
+}
