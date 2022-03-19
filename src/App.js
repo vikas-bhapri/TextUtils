@@ -40,7 +40,7 @@ function App() {
 
   return (
     <>
-       <BrowserRouter>
+      <BrowserRouter>
       <NavBar text="TextUtils" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <Routes>
